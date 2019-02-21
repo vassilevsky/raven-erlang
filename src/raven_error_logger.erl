@@ -195,7 +195,7 @@ parse_message(error = Level, Pid, "** Task " ++ _, [TaskPid, RefPid, Fun, FunArg
         ]}
     ]};
 parse_message(Level, Pid, Format, Data) ->
-    {format(Format, Data), [
+    {iolist_to_binary(Format), [
         {level, Level},
         {extra, [
             {pid, Pid},
